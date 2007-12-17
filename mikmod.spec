@@ -15,7 +15,6 @@ Patch2:		mikmod-3.2.1-document-color-in-man-page.patch
 Patch3:		mikmod-3.2.1-playmode-in-man-page.patch
 Patch4:		mikmod-3.2.1-fix-hyphen-in-man-page.patch
 URL:		http://mikmod.raphnet.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libmikmod-devel ncurses-devel
 
 %description
