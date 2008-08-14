@@ -1,19 +1,17 @@
 %define	name	mikmod
-%define	version	3.2.1
-%define	release	%mkrel 7
+%define	version	3.2.2
+%define prerel beta1
+%define	release	%mkrel 0.%prerel.1
 
 Name:		%{name}
 Summary:	A MOD music file player
 Version:	%{version}
 Release:	%{release}
-License:	LGPL
+License:	GPLv2+
 Group:		Sound 
-Source0:	%{name}-%{version}.tar.bz2
-#Patch0:	mikmod-3.1.6-a-va_end-fixes.patch.bz2
-Patch1:		mikmod-3.2.1-fix-warnings.patch
-Patch2:		mikmod-3.2.1-document-color-in-man-page.patch
-Patch3:		mikmod-3.2.1-playmode-in-man-page.patch
-Patch4:		mikmod-3.2.1-fix-hyphen-in-man-page.patch
+Source0:	%{name}-%{version}-%prerel.tar.gz
+#gw from Fedora, fix compiler warnings
+Patch: mikmod-3.2.2-beta1-missing-protos.patch
 URL:		http://mikmod.raphnet.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libmikmod-devel ncurses-devel
@@ -30,15 +28,11 @@ loading from gzip/pkzip/zoo archives and the loading/saving of playlists.
 Install the mikmod package if you need a MOD music file player.
 
 %prep
-%setup -q
-#%patch0 -p1 -b .va_end-fixes
-%patch1 -p1 -b .fix_warnings
-%patch2 -p1 -b .man_color
-%patch3 -p1 -b .man_playmode
-%patch4 -p1 -b .man_hyphen
+%setup -q -n %name-%version-%prerel
+%patch -p1 -b .missing-protos
 
 %build
-%configure	--enable-color-interface
+%configure2_5x	--enable-color-interface
 %make
 
 %install
@@ -53,5 +47,5 @@ rm -fr %{buildroot}
 %doc AUTHORS NEWS README
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
-
+%_datadir/%name
 
