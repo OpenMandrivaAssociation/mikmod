@@ -10,8 +10,9 @@ Release:	%{release}
 License:	GPLv2+
 Group:		Sound 
 Source0:	%{name}-%{version}-%prerel.tar.gz
-#gw from Fedora, fix compiler warnings
-Patch: mikmod-3.2.2-beta1-missing-protos.patch
+#gw P0 from Fedora, fix compiler warnings
+Patch0:		mikmod-3.2.2-beta1-missing-protos.patch
+Patch1:		mikmod-3.2.2-fix-str-fmt.patch
 URL:		http://mikmod.raphnet.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libmikmod-devel ncurses-devel
@@ -29,7 +30,8 @@ Install the mikmod package if you need a MOD music file player.
 
 %prep
 %setup -q -n %name-%version-%prerel
-%patch -p1 -b .missing-protos
+%patch0 -p1 -b .missing-protos
+%patch1 -p0
 
 %build
 %configure2_5x	--enable-color-interface
