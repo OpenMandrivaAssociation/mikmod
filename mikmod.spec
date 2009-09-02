@@ -1,7 +1,7 @@
 %define	name	mikmod
 %define	version	3.2.2
 %define prerel beta1
-%define	release	%mkrel 0.%prerel.2
+%define	release	%mkrel 0.%prerel.3
 
 Name:		%{name}
 Summary:	A MOD music file player
