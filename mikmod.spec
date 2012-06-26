@@ -7,7 +7,7 @@ Group:		Sound
 Source0:	%{name}-%{version}.tar.gz
 Patch1:		mikmod-3.2.2-fix-str-fmt.patch
 URL:		http://mikmod.raphnet.net/
-BuildRequires:	libmikmod-devel ncurses-devel
+BuildRequires:	libmikmod-devel pkgconfig(ncurses)
 
 %description
 MikMod is one of the best and most well known MOD music file players for 
