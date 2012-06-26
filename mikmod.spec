@@ -1,14 +1,10 @@
-%define prerel	beta1
-
 Name:		mikmod
 Summary:	A MOD music file player
 Version:	3.2.2
-Release:	0.%{prerel}.6
+Release:	1
 License:	GPLv2+
 Group:		Sound 
-Source0:	%{name}-%{version}-%prerel.tar.gz
-#gw P0 from Fedora, fix compiler warnings
-Patch0:		mikmod-3.2.2-beta1-missing-protos.patch
+Source0:	%{name}-%{version}.tar.gz
 Patch1:		mikmod-3.2.2-fix-str-fmt.patch
 URL:		http://mikmod.raphnet.net/
 BuildRequires:	libmikmod-devel ncurses-devel
@@ -26,7 +22,6 @@ Install the mikmod package if you need a MOD music file player.
 
 %prep
 %setup -q
-%patch0 -p1 -b .missing-protos~
 %patch1 -p0
 
 %build
