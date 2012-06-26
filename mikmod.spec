@@ -1,12 +1,9 @@
-%define	name	mikmod
-%define	version	3.2.2
-%define prerel beta1
-%define	release	%mkrel 0.%prerel.6
+%define prerel	beta1
 
-Name:		%{name}
+Name:		mikmod
 Summary:	A MOD music file player
-Version:	%{version}
-Release:	%{release}
+Version:	3.2.2
+Release:	0.%{prerel}.6
 License:	GPLv2+
 Group:		Sound 
 Source0:	%{name}-%{version}-%prerel.tar.gz
@@ -14,7 +11,6 @@ Source0:	%{name}-%{version}-%prerel.tar.gz
 Patch0:		mikmod-3.2.2-beta1-missing-protos.patch
 Patch1:		mikmod-3.2.2-fix-str-fmt.patch
 URL:		http://mikmod.raphnet.net/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libmikmod-devel ncurses-devel
 
 %description
@@ -29,8 +25,8 @@ loading from gzip/pkzip/zoo archives and the loading/saving of playlists.
 Install the mikmod package if you need a MOD music file player.
 
 %prep
-%setup -q -n %name-%version-%prerel
-%patch0 -p1 -b .missing-protos
+%setup -q
+%patch0 -p1 -b .missing-protos~
 %patch1 -p0
 
 %build
@@ -38,16 +34,10 @@ Install the mikmod package if you need a MOD music file player.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall
 
-%clean
-rm -fr %{buildroot}
-
 %files
-%defattr(-, root, root)
 %doc AUTHORS NEWS README
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
-%_datadir/%name
-
+%{_datadir}/%{name}
