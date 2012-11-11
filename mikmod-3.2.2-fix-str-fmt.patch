@@ -1,0 +1,25 @@
+--- src/mmenu.c.orig	2009-03-08 03:22:48.000000000 +0100
++++ src/mmenu.c	2009-03-08 03:23:44.000000000 +0100
+@@ -185,9 +185,9 @@
+ 					pos[i] = ch;
+ 				}
+ 			} else
+-				sprintf(storage, text);
++				sprintf(storage, "%s", text);
+ 		} else
+-			sprintf(storage, text);
++			sprintf(storage, "%s", text);
+ 		free (text);
+ 
+ 		/* '...%>' -> '...>' */
+--- src/mlistedit.c.orig	2009-03-08 03:27:26.000000000 +0100
++++ src/mlistedit.c	2009-03-08 03:27:59.000000000 +0100
+@@ -930,7 +930,7 @@
+ 		for (i=strlen(str); i<70; i++)
+ 			*pos++ = ' ';
+ 		*pos = '\0';
+-		printf (str);
++		printf ("%s", str);
+ 		fflush(stdout);
+ 	}
+ 	return 0;
