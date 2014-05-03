@@ -27,7 +27,7 @@ loading from gzip/pkzip/zoo archives and the loading/saving of playlists.
 Install the mikmod package if you need a MOD music file player.
 
 %prep
-%setup -qn %{name}-%{version}-%{prerel}
+%setup -qn lib%{name}-%{version}
 %apply_patches
 
 %build
