@@ -1,21 +1,16 @@
-%define prerel beta1
-
-Summary:	A MOD music file player
 Name:		mikmod
-Version:	3.2.2
-Release:	1.%{prerel}.7
+Summary:	A MOD music file player
+Version:	3.2.6
+Release:	1
 License:	GPLv2+
-Group:		Sound 
-Url:		http://mikmod.raphnet.net/
-Source0:	%{name}-%{version}-%{prerel}.tar.gz
-#gw P0 from Fedora, fix compiler warnings
-Patch0:		mikmod-3.2.2-beta1-missing-protos.patch
-Patch1:		mikmod-3.2.2-fix-str-fmt.patch
+Group:		Sound
+Source0:	http://sourceforge.net/projects/mikmod/files/mikmod/%{version}/mikmod-%{version}.tar.gz
+URL:		http://mikmod.sourceforge.net/
 BuildRequires:	libmikmod-devel
 BuildRequires:	pkgconfig(ncurses)
 
 %description
-MikMod is one of the best and most well known MOD music file players for 
+MikMod is one of the best and most well known MOD music file players for
 UNIX-like systems.  This particular distribution is intended to compile
 fairly painlessly in a Linux environment. MikMod uses the OSS /dev/dsp
 driver including all recent kernels for output, and will also write .wav
@@ -26,19 +21,18 @@ loading from gzip/pkzip/zoo archives and the loading/saving of playlists.
 Install the mikmod package if you need a MOD music file player.
 
 %prep
-%setup -qn %{name}-%{version}-%{prerel}
+%setup -q
 %apply_patches
 
 %build
-%configure2_5x	--enable-color-interface
+%configure --enable-color-interface
 %make
 
 %install
-%makeinstall
+%makeinstall_std
 
 %files
 %doc AUTHORS NEWS README
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/%{name}
-
