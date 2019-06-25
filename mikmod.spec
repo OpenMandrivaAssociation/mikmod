@@ -1,6 +1,6 @@
 Name:		mikmod
 Summary:	A MOD music file player
-Version:	3.2.6
+Version:	3.2.8
 Release:	5
 License:	GPLv2+
 Group:		Sound
