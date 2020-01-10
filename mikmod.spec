@@ -22,7 +22,7 @@ Install the mikmod package if you need a MOD music file player.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure --enable-color-interface
