@@ -1,7 +1,7 @@
 Name:		mikmod
 Summary:	A MOD music file player
 Version:	3.2.8
-Release:	5
+Release:	6
 License:	GPLv2+
 Group:		Sound
 Source0:	http://sourceforge.net/projects/mikmod/files/mikmod/%{version}/mikmod-%{version}.tar.gz
