@@ -5,7 +5,7 @@ Release:	6
 License:	GPLv2+
 Group:		Sound
 Source0:	http://sourceforge.net/projects/mikmod/files/mikmod/%{version}/mikmod-%{version}.tar.gz
-URL:		http://mikmod.sourceforge.net/
+URL:		https://mikmod.sourceforge.net/
 BuildRequires:	libmikmod-devel
 BuildRequires:	pkgconfig(ncurses)
 
